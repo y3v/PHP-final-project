@@ -22,21 +22,16 @@ Sending direct messages to a user asynchronously.
 	PHP
 		General :
 			- All SQL requests are transaction.
-			- On login, sets friends list in session
+			- onLogin(){
+				1. set isLoggedIn to TRUE;
+				2. sets friends list || users w/ conversation in session;
+				
+				}
+				
 			- When user logs in & wants to access messages with a user, retrieve last 20 messages
-					SELECT
-					    *
-					FROM
-					(
-					     SELECT TOP 200
-					          *
-					     FROM
-					          messages
-					     ORDER BY
-					          id DESC
-					) SQ
-					ORDER BY
-					     id ASC
+			- onLogout(){
+				1. set isLoggedIn to FALSE;
+			}
 			
 		Classes : 
 			Message: 
@@ -68,3 +63,5 @@ Sending direct messages to a user asynchronously.
 		-> viewed_by_recipient
 
 Timeline : 
+
+
