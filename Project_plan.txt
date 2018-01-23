@@ -1,3 +1,5 @@
+
+
 Chat system :
 Sending direct messages to a user asynchronously.
 
@@ -20,20 +22,21 @@ Sending direct messages to a user asynchronously.
 	PHP
 		General :
 			- All SQL requests are transaction.
+			- On login, sets friends list in session
 			- When user logs in & wants to access messages with a user, retrieve last 20 messages
-			SELECT
-			    *
-			FROM
-			(
-			     SELECT TOP 200
-			          *
-			     FROM
-			          messages
-			     ORDER BY
-			          id DESC
-			) SQ
-			ORDER BY
-			     id ASC
+					SELECT
+					    *
+					FROM
+					(
+					     SELECT TOP 200
+					          *
+					     FROM
+					          messages
+					     ORDER BY
+					          id DESC
+					) SQ
+					ORDER BY
+					     id ASC
 			
 		Classes : 
 			Message: 
