@@ -7,19 +7,32 @@ Sending direct messages to a user asynchronously.
 		- Processes messages with an ajax request.
 		- If recipient, messages are on the left
 		- If user, messages are on the right & colored
-		- Send button fires javascript function that sends AJAX post request to server. response data (if query successfully executed) would be a 'conversation' object
+		- Send button fires javascript function that sends AJAX post request to server. response data (if query successfully executed) would be a 'message' object
+			-> if message.recipientId = userId, isRecipient = true;
+			-> else { isRecipient = false; || isSender = true;}
 		-> 'new message notification' callback function if recipient
 		
 	-New message: 
 		-> if message area focused, send AJAX post request to update state of the message to 'read'
+	
+	
 	
 	PHP
 		General :
 			- All SQL requests are transaction.
 			
 		Classes : 
-		
-	
+			Message: 
+				-> senderId
+				-> recipientId
+				-> messageContent
+				-> timestamp
+				-> is_deleted
+				-> viewed_by_recipient
+				
+				
+				
+				
 	SQL
 	Tables : 
 		user
@@ -27,12 +40,13 @@ Sending direct messages to a user asynchronously.
 		-> isLoggedIn
 		-> isTyping
 		
-		conversation
+		message
 		-> id
-		-> sender (id-user1)
-		-> recipient (id-user2)
-		-> timeStamp
+		-> sender_id (id-user1)
+		-> recipient_id (id-user2)
+		-> timestamp
 		-> message
+		-> is_deleted
 		(optional)
 		-> viewed_by_recipient
 
