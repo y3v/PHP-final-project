@@ -3,14 +3,20 @@ Sending direct messages to a user asynchronously.
 
 	FrontEnd
 	- html/js interface.
-	- Send button fires javascript function that sends AJAX post request to server.
-		response data (if query successfully executed) would be
-		-> conversation object
-	- Processes messages with an ajax request.
-	- If recipient, messages are on the left
-	- If user, messages are on the right & colored
+	- Messages (general)
+		- Processes messages with an ajax request.
+		- If recipient, messages are on the left
+		- If user, messages are on the right & colored
+		- Send button fires javascript function that sends AJAX post request to server. response data (if query successfully executed) would be a 'conversation' object
+		-> 'new message notification' callback function if recipient
+		
+	-New message: 
+		-> if message area focused, send AJAX post request to update state of the message to 'read'
 	
 	PHP
+		General :
+			- All SQL requests are transaction.
+			
 		Classes : 
 		
 	
