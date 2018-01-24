@@ -1,8 +1,6 @@
-
-
 var instanse = false;
 var state;
-var file;
+var file = 'C:\Users\Yev\git\PHP-final-project\PHP-Final-Project\view\script\chat.js';
 
 function Chat () {
     this.update = updateChat;
@@ -16,7 +14,7 @@ function getStateOfChat(){
 		 instanse = true;
 		 $.ajax({
 			   type: "POST",
-			   url: "process.php",
+			   url: "view/process.php",
 			   data: {  
 			   			'function': 'getState',
 						'file': file
@@ -37,7 +35,7 @@ function updateChat(){
 		 instanse = true;
 	     $.ajax({
 			   type: "POST",
-			   url: "process.php",
+			   url: "view/process.php",
 			   data: {  
 			   			'function': 'update',
 						'state': state,
@@ -68,7 +66,7 @@ function sendChat(message, nickname)
     updateChat();
      $.ajax({
 		   type: "POST",
-		   url: "process.php",
+		   url: "view/process.php",
 		   data: {  
 		   			'function': 'send',
 					'message': message,
